@@ -1,4 +1,4 @@
-// Second assignment
+// First assignment
 function findDuplicate(name, weight, price) {
     let result = [];
     name.forEach(function (item, index, array) {
