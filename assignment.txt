@@ -1,0 +1,72 @@
+// Second assignment
+function findDuplicate(name, weight, price) {
+    let result = [];
+    name.forEach(function (item, index, array) {
+        let fIndex = result.findIndex(o => o.name == item);
+        if (fIndex === -1) {
+            let myObj = {
+                'name': item,
+                'count': 1
+            }
+            result.push(myObj)
+        }
+        else {
+            let current_count = result.filter(obj => {return obj.name === item})[0].count;
+            result[fIndex].count = current_count + 1
+        }
+    });
+
+    console.log(result)
+}
+
+let name = ['book', 'ball', 'pen', 'book', 'pen', 'book']
+let weight = [15, 5, 2, 14, 3]
+let price = [25, 10, 2, 18, 4]
+
+findDuplicate(name, weight, price);
+
+
+
+// Second assignment
+function updateData(obj, opt, target, newValue) {
+    console.log(obj)
+    console.log(opt)
+    console.log(newValue)
+
+    if (opt === 'edit') {
+        if (target === 'Name') {
+            obj.Name = newValue;
+        }
+        if (target === 'Lastname') {
+            obj.Lastname = newValue;
+        }
+        if (target === 'City') {
+            obj.City = newValue;
+        }
+    }
+
+    if (opt === 'delete') {
+        if (target === 'Name') {
+            delete obj.Name;
+        }
+        if (target === 'Lastname') {
+            delete obj.Lastname;
+        }
+        if (target === 'City') {
+            delete obj.City;
+        }
+    }
+    console.log(obj)
+}
+
+let obj = {
+    'Name' : 'James',
+    'Lastname' : 'Clark',
+    'City' : 'Houston'
+}
+
+let opt = 'edit';
+let target = 'City';
+let newValue = 'Austin';
+
+updateData(obj, opt, target, newValue);
